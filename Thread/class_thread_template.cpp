@@ -9,6 +9,7 @@ public:
         flag = true;
         std::cout << "Start thread" << std::endl;
         thr = new std::thread(&ThreadDemo::task, this, 10);
+        // thr->detach();
     }
     void stop()
     {
@@ -42,6 +43,6 @@ int main()
     demo.start();
     std::this_thread::sleep_for(std::chrono::seconds(5));
     demo.stop();
-    
+
     return 0;
 }
