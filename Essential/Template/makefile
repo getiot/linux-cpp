@@ -1,6 +1,14 @@
-all:
-	g++ template_class.cpp -o template_class
-	g++ template_function.cpp -o template_function
+CXX := g++
+CXXFLAGS := -std=c++17 -Wall -Wextra
+SRCS := $(wildcard *.cpp)
+EXES := $(SRCS:.cpp=)
+
+all: $(EXES)
+
+%: %.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:
-	rm template_class template_function
+	rm -f $(EXES)
+
+.PHONY: all clean

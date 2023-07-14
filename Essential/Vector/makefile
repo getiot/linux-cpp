@@ -1,6 +1,14 @@
-all:
-	g++ vector_example.cpp -o vector_example
-	g++ vector_push.cpp -o vector_push
+CXX := g++
+CXXFLAGS := -std=c++17 -Wall -Wextra
+SRCS := $(wildcard *.cpp)
+EXES := $(SRCS:.cpp=)
+
+all: $(EXES)
+
+%: %.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:
-	rm vector_example vector_push
+	rm -f $(EXES)
+
+.PHONY: all clean
