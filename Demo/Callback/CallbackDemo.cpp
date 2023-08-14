@@ -8,7 +8,7 @@ void externalFunction() {
     std::cout << "Calling external function." << std::endl;
 }
 
-class MyCloud {
+class MyDemo {
 public:
     // 绑定外部函数并调用
     void bindExternalFunction() {
@@ -22,8 +22,8 @@ public:
 
 int main() 
 {
-    MyCloud myCloud;
-    myCloud.bindExternalFunction();
+    MyDemo demo;
+    demo.bindExternalFunction();
     
     return 0;
 }

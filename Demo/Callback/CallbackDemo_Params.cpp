@@ -10,7 +10,7 @@ void externalFunction(int loop, std::string& msg) {
     }
 }
 
-class MyCloud {
+class MyDemo {
 public:
     // 注册回调函数
     void registerCallback(const std::function<void(int, std::string&)>& cb_func) {
@@ -22,8 +22,8 @@ public:
 
 int main() 
 {
-    MyCloud myCloud;
-    myCloud.registerCallback(externalFunction);
+    MyDemo demo;
+    demo.registerCallback(externalFunction);
     
     return 0;
 }

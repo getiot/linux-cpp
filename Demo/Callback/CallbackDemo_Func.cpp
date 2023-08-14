@@ -8,7 +8,7 @@ void externalFunction() {
     std::cout << "Calling external function." << std::endl;
 }
 
-class MyCloud {
+class MyDemo {
 public:
     // 注册回调函数
     void registerCallback(const std::function<void()>& cb_func) {
@@ -19,8 +19,8 @@ public:
 
 int main() 
 {
-    MyCloud myCloud;
-    myCloud.registerCallback(externalFunction);
+    MyDemo demo;
+    demo.registerCallback(externalFunction);
     
     return 0;
 }
