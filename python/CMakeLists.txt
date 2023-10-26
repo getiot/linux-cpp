@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(eigenArrayToNumpy)
+project(Cpp_Call_Python)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -40,6 +40,13 @@ if(Python3_FOUND)
     message("------------------------")
 endif()
 
-add_executable(${PROJECT_NAME} eigenArrayToNumpy.cpp)
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${Python3_LIBRARIES})
-set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX .exe)
+add_executable(eigenArrayToNumpy eigenArrayToNumpy.cpp)
+target_link_libraries(eigenArrayToNumpy ${Boost_LIBRARIES} ${Python3_LIBRARIES})
+set_target_properties(eigenArrayToNumpy PROPERTIES SUFFIX .exe)
+
+add_executable(runPythonFromFile runPythonFromFile.cpp)
+target_link_libraries(runPythonFromFile ${Boost_LIBRARIES} ${Python3_LIBRARIES})
+set_target_properties(runPythonFromFile PROPERTIES SUFFIX .exe)
+
+file(GLOB PY_FILES ${CMAKE_SOURCE_DIR}/*.py)
+file(COPY ${PY_FILES} DESTINATION ${CMAKE_BINARY_DIR})
